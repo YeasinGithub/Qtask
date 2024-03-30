@@ -6,16 +6,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Signin Template · Bootstrap v5.2</title>
+    <title>Qtec Task</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
-    
-
-    
-
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -69,76 +64,71 @@
       }
 
     </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-  <body class="text-center">
+<body class="text-center">
     
-<main class="form-signin w-100 m-auto">
+  <main class="form-signin w-100 m-auto">
+      <form method="POST" action="{{ route('register') }}">
+        @csrf
 
-  <form method="POST" action="{{ route('register') }}">
-    @csrf
+        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
-    <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="form-floating mb-1">
+            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <label for="floatingInput">name</label>
 
-    <div class="form-floating mb-1">
-      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-      <label for="floatingInput">name</label>
+            @error('name')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+        </div>
 
-      @error('name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-      @enderror
-    </div>
+        <div class="form-floating mb-1">
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            <label for="floatingPassword">email</label>
 
-    <div class="form-floating mb-1">
-      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-      <label for="floatingPassword">email</label>
+            @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+        </div>
 
-      @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-    </div>
+        <div class="form-floating mb-1">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <label for="floatingPassword">password</label>
 
-    <div class="form-floating mb-1">
-      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-      <label for="floatingPassword">password</label>
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+        </div>
 
-      @error('password')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-    </div>
+        <div class="form-floating">
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            <label for="floatingPassword">Confirm Password</label>
 
-    <div class="form-floating">
-      <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-      <label for="floatingPassword">Confirm Password</label>
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+        </div>
 
-      @error('password')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-    </div>
+        <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Submit</button>
+            <p class="text-muted mb-0">Do not have an account? 
+                <a href="{{ route('login') }}" style="text-decoration: none;"> Sign in</a>
+            </p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
+      </form>
+  </main>
 
-    <button class="w-100 btn btn-lg btn-primary mb-1" type="submit">Submit</button>
-        <p class="text-muted mb-0">Do not have an account? 
-            <a href="{{ route('login') }}" style="text-decoration: none;"> Sign in</a>
-        </p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
-  </form>
-</main>
-
-
-    
-  </body>
+</body>
 </html>
 
 

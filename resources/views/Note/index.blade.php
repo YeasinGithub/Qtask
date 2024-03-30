@@ -1,16 +1,18 @@
 @extends('master')
 @section('content')
 
-      @if (Session::has('success'))
-            <div class="alert alert-success">
-                <div>
-                    <p>{{ Session::get('success') }}</p>
-                </div>
+<div class="row">
+    @if (Session::has('success'))
+        <div class="alert alert-success">
+            <div>
+                <h5><p>{{ Session::get('success') }}</p></h5>
             </div>
-        @endif
+        </div>
+    @endif
 
-      <h2><a href="{{ route('note.create') }}" class="btn btn-primary btn-sm">Add+</a></h2>
-        <div class="table-responsive">
+    <div class="col-md-8">
+    <h2><a href="{{ route('note.create') }}" class="btn btn-primary btn-sm">Add+</a></h2>
+      <div class="table-responsive">
         <table class="table table-striped table-sm"  id='myTable'>
           <thead>
             <tr>
@@ -40,6 +42,9 @@
           </tbody>
         </table>
       </div>
+    </div>
+</div>
+      
 
 @endsection
 
